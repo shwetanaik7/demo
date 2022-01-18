@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +19,11 @@ public class UserController {
 	void createUser(@RequestBody User user)
 	{
 		System.out.println(user.getName());
+	}
+	@DeleteMapping("/user")
+	void deleteUser()
+	{
+		
 	}
 
 }
