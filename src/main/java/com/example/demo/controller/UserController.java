@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -25,6 +25,7 @@ public class UserController {
 	void createUser(@RequestBody User user)
 	{
 		System.out.println(user.getName());
+		System.out.println(user.getAge());
 		userService.saveUser(user);
 	}
 	@DeleteMapping("/user")
