@@ -32,6 +32,7 @@ public class UserController {
 	void deleteUser()
 	{
 		//comments added
+		System.out.println("Hi there!");
 	}
 
 }
