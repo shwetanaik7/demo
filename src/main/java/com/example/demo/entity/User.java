@@ -13,6 +13,7 @@ public class User {
 	private Integer id;
 	@NotBlank
 	private String name;
+	
 	private int age;
 	
 	public int getAge() {
