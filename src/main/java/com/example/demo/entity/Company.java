@@ -7,27 +7,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.validation.constraints.NotBlank;
-
-import org.hibernate.validator.constraints.Range;
 
 @Entity
-public class User {
+public class Company {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	@NotBlank
 	private String name;
-	
-	@Range(min=0)
-	private int age;
-	
-	public int getAge() {
-		return age;
-	}
+	private String location;
+	@OneToOne(mappedBy = "company")
+	User user;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="address_id", referencedColumnName = "id")
+	@JoinColumn(name="company_address_id", referencedColumnName = "id")
 	Address address;
 
 	public Address getAddress() {
@@ -38,36 +30,23 @@ public class User {
 		this.address = address;
 	}
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="company_id", referencedColumnName = "id")
-	Company company;
-	
-
-	public Company getCompany() {
-		return company;
-	}
-
-	public void setCompany(Company company) {
-		this.company = company;
-	}
-
-	public void setAge(int age) {
-		this.age = age;
-	}
-
 	public Integer getId() {
 		return id;
 	}
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
+	public String getLocation() {
+		return location;
+	}
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
 }
